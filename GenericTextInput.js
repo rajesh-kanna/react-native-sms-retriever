@@ -25,7 +25,7 @@ import T from 'ramda/src/T'
 import always from 'ramda/src/always'
 import is from 'ramda/src/is'
 
-const isEmpty = anyPass([isNil, isEmpty])
+const is_Empty = anyPass([isNil, isEmpty])
 
 const styles = StyleSheet.create({
   box: {
@@ -121,7 +121,7 @@ const validationMap = type => ({
   name: test.bind(RegExp('(.*[^\\s]+.*)+$')),
   password: test.bind(RegExp('^([a-zA-Z0-9$@$!%*?&]){1,}$')),
   tel: (value, countryCode) => {
-    const val = isEmpty(value) ? value : value.trim()
+    const val = is_Empty(value) ? value : value.trim()
     if (countryCode === '+91') {
       return test.bind(RegExp('^[1-9]{1}[0-9]{9}$'))(val) && val.length === 10
     }
@@ -450,7 +450,7 @@ export default class GenericTextInput extends PureComponent {
                   autoCapitalize={autoCapitalize}
                   autoCorrect={false}
                   keyboardType={
-                    isEmpty(this.props.keyboardType) ? keyboardType(type) : this.props.keyboardType
+                    is_Empty(this.props.keyboardType) ? keyboardType(type) : this.props.keyboardType
                   }
                   secureTextEntry={secureTextEntry}
                   value={value}
@@ -465,7 +465,7 @@ export default class GenericTextInput extends PureComponent {
                 <If predicate={showPasswordToggle}>
                   <TouchableWithoutFeedback
                     onPress={
-                      isEmpty(this.props.onToggleClick)
+                      is_Empty(this.props.onToggleClick)
                         ? this.toggleSecureText
                         : this.props.onToggleClick
                     }
