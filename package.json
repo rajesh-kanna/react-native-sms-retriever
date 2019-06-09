@@ -23,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/onkarpandit/sms-retriever-library/issues"
   },
-  "homepage": "https://github.com/onkarpandit/sms-retriever-library#readme"
+  "homepage": "https://github.com/onkarpandit/sms-retriever-library#readme",
+  "dependencies": {
+    "ramda": "^0.26.1"
+  }
 }
